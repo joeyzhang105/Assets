@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1011 &101100000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Actor_251_Avatar_Mask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Dummy001
+    m_Weight: 1
+  - m_Path: Dummy001/Bone001
+    m_Weight: 1
+  - m_Path: Dummy001/Bone001/Bone002
+    m_Weight: 1
+  - m_Path: Dummy001/Bone001/Bone002/Bone003
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone006
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone006/Bone007
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone006/Bone007/Bone018
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone006/Bone007/Bone018(mirrored)
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone006/Bone009
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone006/Bone009(mirrored)
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone006/Bone015
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone006/Bone015/Bone016
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone006/Bone015/Bone016/Bone017
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone006/Bone015(mirrored)
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone006/Bone015(mirrored)/Bone016(mirrored)
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone006/Bone015(mirrored)/Bone016(mirrored)/Bone017(mirrored)
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone011
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone011(mirrored)
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone012
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone012/Bone013
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone012/Bone013/Bone014
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone012(mirrored)
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone012(mirrored)/Bone013(mirrored)
+    m_Weight: 1
+  - m_Path: Dummy001/Bone005/Bone012(mirrored)/Bone013(mirrored)/Bone014(mirrored)
+    m_Weight: 1
+  - m_Path: Race_251
+    m_Weight: 1
