@@ -29,13 +29,13 @@ public class GenerateBakedMesh : MonoBehaviour {
 
 		float length = clipState.clip.length;
 		float frameRate = clipState.clip.frameRate;
-		int totalFrames =(int) (length * frameRate);
+	    int totalFrames =(int) (length * frameRate);
 
 		Debug.Log (length + "\t" + frameRate +"\t"+ totalFrames);
 
-		float deltaTime = 3 / frameRate;
+		float deltaTime = 1 / frameRate;
 
-		for (int i=0; i< 69/3; i++) {
+		for (int i=0; i< totalFrames; i++) {
 
 			Mesh bakedMesh = new Mesh();
 
@@ -76,7 +76,7 @@ public class GenerateBakedMesh : MonoBehaviour {
 
 
 		string _path = "Assets/Resources/bakedTest/" + _frame +".prefab";
-		AssetDatabase.CreateAsset (_mesh, "Assets/Resources/bakedTest/bakedmesh" + _frame +".mesh");
+		AssetDatabase.CreateAsset (_mesh, "Assets/Resources/bakedTest/bakedmesh" + _frame +".asset");
 
 		PrefabUtility.CreatePrefab (_path, go);
 	
