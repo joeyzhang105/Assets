@@ -10,7 +10,7 @@ public class ExportAssetBundles {
 		string path = EditorUtility.SaveFilePanel ("Save Resource", "", "New Resource", "unity3d");
 		if (path.Length != 0) {
 			// Build the resource file from the active selection.
-			BuildPipeline.BuildAssetBundle(Selection.activeObject, Selection.objects, path,/*BuildAssetBundleOptions.UncompressedAssetBundle|*/BuildAssetBundleOptions.CollectDependencies);
+			BuildPipeline.BuildAssetBundle(Selection.activeObject, Selection.objects, path, BuildAssetBundleOptions.UncompressedAssetBundle|BuildAssetBundleOptions.CollectDependencies);
 		}
 	}
 }
