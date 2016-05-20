@@ -12,8 +12,8 @@ public class AnimationScriptableObject : ScriptableObject {
 	[SerializeField]
 	public WrapMode wrapMode = WrapMode.Default;
     
-	[NonSerialized]
-	public bool isPlaying = false;
+//	[NonSerialized]
+//	public bool isPlaying = false;
     
 	//public void OnEnable()
     //{

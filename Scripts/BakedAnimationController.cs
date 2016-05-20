@@ -66,19 +66,20 @@ public class BakedAnimationController : MonoBehaviour
         if (curPlayingAnimation == null) return;
         if (isFrozen) return;
 
-        curPlayingAnimation.isPlaying = true;
+        //curPlayingAnimation.isPlaying = true;
         int totalFrame = curPlayingAnimation.animationData.Count;
         startTime += Time.deltaTime;
         int curFrame = Mathf.FloorToInt(startTime * frameRate * animationSpeed) % totalFrame;
-        meshFilter.sharedMesh.vertices = curPlayingAnimation.animationData[curFrame].vertices;
-        if (!string.IsNullOrEmpty(curPlayingAnimation.animationData[curFrame].functionName))
+        meshFilter.mesh.vertices = curPlayingAnimation.animationData[curFrame].vertices;
+        
+		if (!string.IsNullOrEmpty(curPlayingAnimation.animationData[curFrame].functionName))
         {
             SendMessage(curPlayingAnimation.animationData[curFrame].functionName, curPlayingAnimation.animationData[curFrame].param,SendMessageOptions.RequireReceiver); 
         }
 
         if (curPlayingAnimation.wrapMode != WrapMode.Loop && curFrame >= (totalFrame - 1)) //假如不是Loop动画，那么我们播完一次后，就自动回到defaultAnimation的动画
         {
-            curPlayingAnimation.isPlaying = false;
+            //curPlayingAnimation.isPlaying = false;
             curPlayingAnimation = defaultAnimation;
             startTime = 0;
         }
@@ -102,7 +103,7 @@ public class BakedAnimationController : MonoBehaviour
     {
         isFrozen = false;
         startTime = 0;
-        if (curPlayingAnimation != null) { curPlayingAnimation.isPlaying = false; }//播放新动画前，把当前正在播放的动画的播放状态设成false
+        //if (curPlayingAnimation != null) { curPlayingAnimation.isPlaying = false; }//播放新动画前，把当前正在播放的动画的播放状态设成false
         
         curPlayingAnimation = animObj;
     }
@@ -117,7 +118,7 @@ public class BakedAnimationController : MonoBehaviour
     {
         isFrozen = true;
         curPlayingAnimation = animationDic[_name];
-        meshFilter.sharedMesh.vertices = curPlayingAnimation.animationData[_frame].vertices;
+        meshFilter.mesh.vertices = curPlayingAnimation.animationData[_frame].vertices;
     }
 
     public void UnFreeze()
@@ -125,7 +126,17 @@ public class BakedAnimationController : MonoBehaviour
         Play(defaultAnimation);
     }
 
-    public void StopAllAnimation()
+	/// <summary>
+	/// 查询是否有动画被播放中
+	/// </summary>
+	/// <returns></returns>
+	public bool IsPlaying()
+	{
+		return curPlayingAnimation != null;
+	}
+	
+	/*
+	    public void StopAllAnimation()
     {
         curPlayingAnimation = null;
         foreach (KeyValuePair<string, AnimationScriptableObject> kvp in animationDic)
@@ -146,23 +157,16 @@ public class BakedAnimationController : MonoBehaviour
     }
 
     
-    /// <summary>
-    /// 查询是否有动画被播放中
-    /// </summary>
-    /// <returns></returns>
-    public bool IsPlaying()
-    {
-        return curPlayingAnimation != null;
-    }
+
     
-    /// <summary>
-    /// 查询某个动画是否在播放中
-    /// </summary>
-    /// <param name="_name"></param>
-    /// <returns></returns>
+    / <summary>
+    / 查询某个动画是否在播放中
+    / </summary>
+    / <param name="_name"></param>
+    / <returns></returns>
     public bool IsPlaying(string _name)
     {
         return animationDic[_name].isPlaying;
     }
-
+   */
 }

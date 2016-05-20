@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(BakedAnimationController))]
+
 public class TestScript : MonoBehaviour {
 
 
-    BakedAnimationController _controller = null;
+    public BakedAnimationController _controller = null;
 	// Use this for initialization
 	void Start () {
-        _controller = GetComponent<BakedAnimationController>();
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	
