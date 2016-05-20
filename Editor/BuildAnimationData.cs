@@ -2,8 +2,14 @@
 using System.Collections;
 using UnityEditor;
 using System.IO;
+using System.Collections.Generic;
 
 public class BuildAnimationData : MonoBehaviour {
+
+    static List<AnimationClip> cachedAnimationList = new List<AnimationClip>();
+
+
+
 
     [MenuItem("Assets/Build AnimationData From Selection")]
     static void BuildAnimationDataFromSelection()
@@ -14,7 +20,10 @@ public class BuildAnimationData : MonoBehaviour {
             if (_path.Length != 0)
             {
                 GameObject _go = Instantiate((GameObject)Selection.activeGameObject) as GameObject;
-               
+
+                CacheAnimationClip(_go);
+
+
                 SkinnedMeshRenderer _smr = _go.GetComponentInChildren<SkinnedMeshRenderer>();
                 Mesh bakedMesh = new Mesh();
                 _smr.BakeMesh(bakedMesh);
@@ -65,13 +74,17 @@ public class BuildAnimationData : MonoBehaviour {
     static void GenerateAnimationData(GameObject _go, string _path, GameObject _newGO)
     {
         BakedAnimationController _bac = _newGO.AddComponent<BakedAnimationController>();
+        _bac.animationList = new List<AnimationScriptableObject>();
         
         _go.animation.Stop();
         _go.animation.playAutomatically = false;
-              
-        foreach (AnimationState aniState in _go.animation)
+
+        foreach (AnimationClip aniClip in cachedAnimationList)
         {
-           aniState.time = 0;
+            _go.animation.AddClip(aniClip, aniClip.name);
+            
+            AnimationState aniState = _go.animation[aniClip.name];
+            _go.animation[aniClip.name].time = 0;
            
            float length = aniState.clip.length;
            float frameRate = aniState.clip.frameRate;
@@ -110,12 +123,36 @@ public class BuildAnimationData : MonoBehaviour {
             EditorUtility.SetDirty(aniObject);
 
             _bac.animationList.Add(aniObject);
+
+            _go.animation.RemoveClip(aniClip);
+        }
+
+        foreach (AnimationClip aniClip in cachedAnimationList)
+        {
+            _go.animation.AddClip(aniClip, aniClip.name);
         }
 
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         EditorUtility.FocusProjectWindow();
 
+    }
+
+
+
+
+    static void CacheAnimationClip(GameObject _go)
+    {
+
+        foreach (AnimationState aniState in _go.animation)
+        {
+            cachedAnimationList.Add(aniState.clip);
+        }
+
+        foreach (AnimationState aniState in _go.animation)
+        {
+            _go.animation.RemoveClip(aniState.clip);
+        }
     }
 
 }
