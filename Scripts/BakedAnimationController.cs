@@ -2,71 +2,162 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class BakedAnimationController : MonoBehaviour {
+public class BakedAnimationController : MonoBehaviour
+{
 
-    [SerializeField]
-    public List<AnimationScriptableObject> animationList = new List<AnimationScriptableObject>();
+	[SerializeField]
+	public AnimationScriptableObject
+		defaultAnimation = null;
+	public bool playAutomatically = true;
+	public List<AnimationScriptableObject> animationList = new List<AnimationScriptableObject> ();
+	Dictionary<string, AnimationScriptableObject> animationDic = new Dictionary<string, AnimationScriptableObject> ();
+	MeshFilter meshFilter = null;
 
-    Dictionary<string, AnimationScriptableObject> animationDic = new Dictionary<string, AnimationScriptableObject>();
+	AnimationScriptableObject curPlayingAnimation = null;
+	AnimationScriptableObject curLoopingAnimation = null;
 
-    MeshFilter meshFilter = null;
+	// Use this for initialization
+	void Start ()
+	{
+		Init ();
+		if (playAutomatically && defaultAnimation != null) {
 
-    public int _fps = 10;
-    private int lastIndex = -1;
 
-    // Use this for initialization
-	void Start () {
-        Init();
+			Play (defaultAnimation);
+			StartCoroutine (Co_Play ());
+		}
+	}
+
+	void Init ()
+	{
+		for (int i = 0; i < animationList.Count; i++) {
+			string[] nameBits = animationList [i].name.Split ('@');
+			if (nameBits.Length < 1) {
+				Debug.LogError ("Wrong Name Format: " + animationList [i].name);
+				continue;
+			}
+			animationDic.Add (nameBits [1], animationList [i]);
+		}
+
+		meshFilter = GetComponent<MeshFilter> ();
+
+       
+	}
+
+	void Update ()
+	{
+		if (Input.GetButtonDown("Fire1")) {
+			Debug.Log("lllllll");
+			Play ("Attack_1_1");
+		} else {
+			Play ("Idle1");
+		}
+	}
+
+	void UpdateAnimationState()
+	{
+
+
 	}
 
 
-    void Init()
-    {
-        for (int i = 0; i < animationList.Count; i++)
-        {
-            string[] nameBits = animationList[i].name.Split('@');
-            if(nameBits.Length < 1){ Debug.LogError("Wrong Name Format: " + animationList[i].name); continue; }
-            animationDic.Add(nameBits[1], animationList[i]);
-        }
+	IEnumerator  Co_Play ( )
+	{
 
-        meshFilter = GetComponent<MeshFilter>();
+		    while (true)
+		   {
 
-       //StartCoroutine(Co_Play("Idle1"));
-    }
+			if(curPlayingAnimation.wrapMode == WrapMode.Loop) 
+			{
+				Debug.Log ("aaaaa" + curPlayingAnimation.name);
+				curPlayingAnimation.isPlaying = true;
+				curLoopingAnimation = curPlayingAnimation;
+				int i = 0;
+				for (i = 0; i < curLoopingAnimation.animationData.Count; ++i) {
 
+					meshFilter.sharedMesh.vertices = curLoopingAnimation.animationData [i].vertices;
+					yield return new WaitForSeconds (Time.deltaTime);
+					if (i == curLoopingAnimation.animationData.Count - 1) {
+						i = 0;
+					}
+				}
+			}
+			else //non-loopAnimation
+			{
+				Debug.Log ("bbbbb" + curPlayingAnimation.name);
+				for (int i = 0; i < curPlayingAnimation.animationData.Count; ++i) {
+					Debug.Log("CCCC" + curPlayingAnimation.name);
+				    curPlayingAnimation.isPlaying = true;
+					meshFilter.sharedMesh.vertices = curPlayingAnimation.animationData[i].vertices;
+					yield return new WaitForSeconds (Time.deltaTime);
+				}
+				    curPlayingAnimation = curLoopingAnimation;
+					curPlayingAnimation.isPlaying = false;
+						 
+			  }
+		   }
 
+		yield break;
 
-     void Update()
-    {
-       Play("Idle1");
 	}
 
-    //TODO
-     public void Play(string aniName)
-     {
+	void Play (string aniName)
+	{	
+		if (animationDic [aniName].isPlaying && animationDic [aniName].wrapMode == WrapMode.Loop)
+			return;
 
-         int index = (int)(Time.timeSinceLevelLoad * _fps) % animationDic[aniName].animationData.Count;
-         Debug.Log(index);
-         
-             for (int i = 0; i < animationDic[aniName].animationData.Count; i++)
-             {
-                 if (index != lastIndex)
-                 {
-                    meshFilter.sharedMesh.vertices = animationDic[aniName].animationData[i].vertices;
-                    lastIndex = index;
-                 }  
-         }
-     }
+		curPlayingAnimation = animationDic [aniName];
+		if (curPlayingAnimation.wrapMode != WrapMode.Loop) {
+			StopAllCoroutines();
+			StartCoroutine(Co_Play());
+		}
 
+	}
 
-    IEnumerator  Co_Play(string aniName)
-    {
-        for (int i = 0; i < animationDic[aniName].animationData.Count; i++)
-        {
-            meshFilter.sharedMesh.vertices = animationDic[aniName].animationData[i].vertices;
-            yield return new WaitForSeconds(Time.deltaTime);
-        }
+	void Play (AnimationScriptableObject animObj)
+	{
+		curPlayingAnimation = animObj;
+	}
 
-        yield break;
-    }
+	void Stop()
+	{
+		StopAllCoroutines ();
+		foreach(KeyValuePair<string, AnimationScriptableObject> kvp in animationDic) {
+			kvp.Value.isPlaying = false;
+		}
+	}
+
+	void StopAnimation(string _name)
+	{
+		animationDic [_name].isPlaying = false;
+	}
+
+	void StopAnimation(AnimationScriptableObject _obj)
+	{
+		_obj.isPlaying = false;
+	}
+
+	bool IsPlaying()
+	{
+		foreach(KeyValuePair<string, AnimationScriptableObject> kvp in animationDic) {
+			if(kvp.Value.isPlaying){ return true;}
+		}
+
+		return false;
+	}
+	
+//	void OnGUI ()
+//	{
+//
+//		if (GUILayout.Button ("Idle")) {
+//
+//			Play ("Idle1");
+//		}
+//
+//		
+//		if (GUILayout.Button ("attack")) {
+//			
+//			Play ("Attack_1_1");
+//		}
+//	}
 }

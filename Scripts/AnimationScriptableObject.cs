@@ -9,9 +9,13 @@ public class AnimationScriptableObject : ScriptableObject {
 
 	[SerializeField]
 	public List<AnimationFrame> animationData = new List<AnimationFrame>();
-
-
-    //public void OnEnable()
+	[SerializeField]
+	public WrapMode wrapMode = WrapMode.Default;
+    
+	[NonSerialized]
+	public bool isPlaying = false;
+    
+	//public void OnEnable()
     //{
     //    //hideFlags = HideFlags.HideAndDontSave;
     //    if (animationData == null)
@@ -21,7 +25,6 @@ public class AnimationScriptableObject : ScriptableObject {
     //public void OnDisable() {
     //    animationData.Clear ();
     //}
-
 }
 
 

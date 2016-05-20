@@ -33,10 +33,10 @@ public class BuildAnimationData : MonoBehaviour {
 
     static GameObject GenerateBakedGameObject(string _name, Mesh _mesh, Material _mat, string _path)
 	{
-		_mesh.uv1 =null;
-		_mesh.uv2 =null;
-		_mesh.tangents= null;
-		_mesh.normals = null;
+//		_mesh.uv1 =null;
+//		_mesh.uv2 =null;
+//		_mesh.tangents= null;
+//		_mesh.normals = null;
 
 
 		GameObject go = new GameObject ();
