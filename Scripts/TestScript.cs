@@ -28,7 +28,13 @@ public class TestScript : MonoBehaviour {
             _controller.Play("Show_1");
         }
 
-        if (GUILayout.Button("Freeze"))
+		if (GUILayout.Button("Freeze"))
+		{
+			_controller.Freeze();
+		}
+
+
+        if (GUILayout.Button("FreezeCertainAnimation"))
         {
             _controller.FreezeAtFrame("Vertigo_1", 18);
         }

@@ -107,6 +107,11 @@ public class BakedAnimationController : MonoBehaviour
         curPlayingAnimation = animObj;
     }
 
+	public void Freeze()
+	{
+		isFrozen = true;
+	}
+
 
     public void FreezeAtFrame(string _name, int _frame)
     {
