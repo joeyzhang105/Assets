@@ -20,12 +20,12 @@ public class BakedAnimationController : MonoBehaviour
 	void Start ()
 	{
 		Init ();
-		if (playAutomatically && defaultAnimation != null) {
+        //if (playAutomatically && defaultAnimation != null) {
 
 
-			Play (defaultAnimation);
-			StartCoroutine (Co_Play ());
-		}
+        //    Play (defaultAnimation);
+        //    StartCoroutine (Co_Play ());
+        //}
 	}
 
 	void Init ()
@@ -41,22 +41,40 @@ public class BakedAnimationController : MonoBehaviour
 
 		meshFilter = GetComponent<MeshFilter> ();
 
+       // startTime = Time.realtimeSinceStartup;
+
        
 	}
 
+
+   
 	void Update ()
 	{
-		if (Input.GetButtonDown("Fire1")) {
-			Debug.Log("lllllll");
-			Play ("Attack_1_1");
-		} else {
-			Play ("Idle1");
-		}
+        UpdateAnimationState();
+        //if (Input.GetButtonDown("Fire1")) {
+        //    Debug.Log("lllllll");
+        //    Play ("Attack_1_1");
+        //} 
+        //else
+        //{        
+        //    Play("Idle1"); 
+        //}
 	}
 
+
+    float startTime = 0;
+    public int frameRate = 30;
+    public float animationSpeed = 1f;
 	void UpdateAnimationState()
 	{
+        curPlayingAnimation = defaultAnimation;
+        
+        int totalFrame = curPlayingAnimation.animationData.Count;
 
+        startTime += Time.deltaTime;
+        int curFrame =Mathf.FloorToInt (startTime * frameRate  * animationSpeed) %  totalFrame;
+
+        meshFilter.sharedMesh.vertices = curPlayingAnimation.animationData[curFrame].vertices;
 
 	}
 
@@ -97,11 +115,9 @@ public class BakedAnimationController : MonoBehaviour
 			  }
 		   }
 
-		yield break;
-
 	}
 
-	void Play (string aniName)
+    public	void Play (string aniName)
 	{	
 		if (animationDic [aniName].isPlaying && animationDic [aniName].wrapMode == WrapMode.Loop)
 			return;
@@ -114,7 +130,7 @@ public class BakedAnimationController : MonoBehaviour
 
 	}
 
-	void Play (AnimationScriptableObject animObj)
+	public void Play (AnimationScriptableObject animObj)
 	{
 		curPlayingAnimation = animObj;
 	}
