@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEditor;
 using System.IO;
 using System.Collections.Generic;
+using System;
 
 public class BuildAnimationData : MonoBehaviour {
 
@@ -110,8 +111,20 @@ public class BuildAnimationData : MonoBehaviour {
 
 
                 AnimationFrame _frame = new AnimationFrame();
+                _frame.vertices = new VertexData[bakedMesh.vertices.Length];
                 _frame.frameIndex = i;
-                _frame.vertices = bakedMesh.vertices;
+
+                for (int j = 0; j < bakedMesh.vertices.Length; j++)
+                {
+                    VertexData vd = new VertexData();
+                    vd.x =  (short)(bakedMesh.vertices[j].x * 10000000);
+                    vd.y = (short)(bakedMesh.vertices[j].y * 10000000);
+                    vd.z = (short)(bakedMesh.vertices[j].z * 10000000);
+                    _frame.vertices[j] = vd;
+
+                    Debug.Log(vd.x + "/n" + vd.y + "/n" + vd.z);
+
+                }
                 aniObject.animationData.Add(_frame);
 
                 aniState.time += deltaTime;

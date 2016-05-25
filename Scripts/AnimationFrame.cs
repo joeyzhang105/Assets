@@ -7,7 +7,16 @@ public class AnimationFrame
 {
 	[SerializeField]
 	public int frameIndex;
-	public Vector3[] vertices;
+	public VertexData[] vertices;
     public string functionName = "";
     public string param = "";
+}
+
+[Serializable]
+public class VertexData
+{
+    [SerializeField]
+    public short x;
+    public short y;
+    public short z;
 }
