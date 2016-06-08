@@ -1,0 +1,126 @@
+fileFormatVersion: 2
+guid: 71da7e1c52146424285ee6625072ce9e
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Bone001
+    100004: Bone003
+    100006: Bone005
+    100008: Bone005(mirrored)
+    100010: Bone006
+    100012: Bone006(mirrored)
+    100014: Bone007
+    100016: Bone007(mirrored)
+    100018: Bone008
+    100020: Bone008(mirrored)
+    100022: Bone009
+    100024: Bone009(mirrored)
+    100026: Bone010
+    100028: Bone010(mirrored)
+    100030: Bone011
+    100032: Bone011(mirrored)
+    100034: Bone012
+    100036: Bone012(mirrored)
+    100038: Bone013
+    100040: Bone013(mirrored)
+    100042: Dummy001
+    100044: IK Chain001
+    100046: IK Chain002
+    100048: IK Chain003
+    100050: IK Chain004
+    100052: IK Chain005
+    100054: IK Chain006
+    100056: Race_210
+    400000: //RootNode
+    400002: Bone001
+    400004: Bone003
+    400006: Bone005
+    400008: Bone005(mirrored)
+    400010: Bone006
+    400012: Bone006(mirrored)
+    400014: Bone007
+    400016: Bone007(mirrored)
+    400018: Bone008
+    400020: Bone008(mirrored)
+    400022: Bone009
+    400024: Bone009(mirrored)
+    400026: Bone010
+    400028: Bone010(mirrored)
+    400030: Bone011
+    400032: Bone011(mirrored)
+    400034: Bone012
+    400036: Bone012(mirrored)
+    400038: Bone013
+    400040: Bone013(mirrored)
+    400042: Dummy001
+    400044: IK Chain001
+    400046: IK Chain002
+    400048: IK Chain003
+    400050: IK Chain004
+    400052: IK Chain005
+    400054: IK Chain006
+    400056: Race_210
+    2300000: //RootNode
+    2300002: Race_210
+    3300000: //RootNode
+    3300002: Race_210
+    4300000: Race_210
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Race_210
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 1
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths:
+    - Dummy001/Bone001
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 3
+    addColliders: 0
+    importBlendShapes: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 180
+    splitTangentsAcrossUV: 0
+    normalImportMode: 1
+    tangentImportMode: 1
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

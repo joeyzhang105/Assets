@@ -1,0 +1,206 @@
+fileFormatVersion: 2
+guid: d791bbfda4d2c544a84caa46ba0ba2b9
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Bone001
+    100004: Bone003
+    100006: Bone005
+    100008: Bone005(mirrored)
+    100010: Bone006
+    100012: Bone006(mirrored)
+    100014: Bone007
+    100016: Bone007(mirrored)
+    100018: Bone008
+    100020: Bone008(mirrored)
+    100022: Bone009
+    100024: Bone009(mirrored)
+    100026: Bone010
+    100028: Bone010(mirrored)
+    100030: Bone011
+    100032: Bone011(mirrored)
+    100034: Bone012
+    100036: Bone012(mirrored)
+    100038: Bone013
+    100040: Bone013(mirrored)
+    100042: Dummy001
+    100044: IK Chain001
+    100046: IK Chain002
+    100048: IK Chain003
+    100050: IK Chain004
+    100052: IK Chain005
+    100054: IK Chain006
+    100056: Race_210
+    400000: //RootNode
+    400002: Bone001
+    400004: Bone003
+    400006: Bone005
+    400008: Bone005(mirrored)
+    400010: Bone006
+    400012: Bone006(mirrored)
+    400014: Bone007
+    400016: Bone007(mirrored)
+    400018: Bone008
+    400020: Bone008(mirrored)
+    400022: Bone009
+    400024: Bone009(mirrored)
+    400026: Bone010
+    400028: Bone010(mirrored)
+    400030: Bone011
+    400032: Bone011(mirrored)
+    400034: Bone012
+    400036: Bone012(mirrored)
+    400038: Bone013
+    400040: Bone013(mirrored)
+    400042: Dummy001
+    400044: IK Chain001
+    400046: IK Chain002
+    400048: IK Chain003
+    400050: IK Chain004
+    400052: IK Chain005
+    400054: IK Chain006
+    400056: Race_210
+    4300000: Race_210
+    7400000: Vertigo_1
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Race_210
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: 2
+    animationPositionError: 2
+    animationScaleError: 2
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Vertigo_1
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy001/Bone001
+        weight: 1
+      - path: Dummy001/Bone001/Bone005
+        weight: 1
+      - path: Dummy001/Bone001/Bone005/Bone006
+        weight: 1
+      - path: Dummy001/Bone001/Bone005/Bone006/Bone007
+        weight: 1
+      - path: Dummy001/Bone001/Bone005(mirrored)
+        weight: 1
+      - path: Dummy001/Bone001/Bone005(mirrored)/Bone006(mirrored)
+        weight: 1
+      - path: Dummy001/Bone001/Bone005(mirrored)/Bone006(mirrored)/Bone007(mirrored)
+        weight: 1
+      - path: Dummy001/Bone001/Bone008
+        weight: 1
+      - path: Dummy001/Bone001/Bone008/Bone009
+        weight: 1
+      - path: Dummy001/Bone001/Bone008/Bone009/Bone010
+        weight: 1
+      - path: Dummy001/Bone001/Bone008(mirrored)
+        weight: 1
+      - path: Dummy001/Bone001/Bone008(mirrored)/Bone009(mirrored)
+        weight: 1
+      - path: Dummy001/Bone001/Bone008(mirrored)/Bone009(mirrored)/Bone010(mirrored)
+        weight: 1
+      - path: Dummy001/Bone001/Bone011
+        weight: 1
+      - path: Dummy001/Bone001/Bone011/Bone012
+        weight: 1
+      - path: Dummy001/Bone001/Bone011/Bone012/Bone013
+        weight: 1
+      - path: Dummy001/Bone001/Bone011(mirrored)
+        weight: 1
+      - path: Dummy001/Bone001/Bone011(mirrored)/Bone012(mirrored)
+        weight: 1
+      - path: Dummy001/Bone001/Bone011(mirrored)/Bone012(mirrored)/Bone013(mirrored)
+        weight: 1
+      - path: Dummy001/Bone003
+        weight: 1
+      - path: IK Chain001
+        weight: 1
+      - path: IK Chain002
+        weight: 1
+      - path: IK Chain003
+        weight: 1
+      - path: IK Chain004
+        weight: 1
+      - path: IK Chain005
+        weight: 1
+      - path: IK Chain006
+        weight: 1
+      - path: Race_210
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 101100000, guid: 77eb71baa9c28c54285d6e6e09a00fcc, type: 2}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 1
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
